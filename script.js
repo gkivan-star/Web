@@ -1,5 +1,5 @@
-const sendIP = async () => {
-    try {
+    const sendIP = async () => {
+        try {
       // Placeholder function - replace with actual IP retrieval logic
       const ipAddress = await getIPAddress();
   
