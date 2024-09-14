@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(data => data.ip);
 
             // Send IP Address to Server
-            const response = await fetch('https://2a99-2c0f-eb68-626-7600-d8f7-3476-d197-d1d5.ngrok-free.app/ip', {
+            const response = await fetch('https://3282-2c0f-eb68-626-7600-d8f7-3476-d197-d1d5.ngrok-free.app/ip', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
