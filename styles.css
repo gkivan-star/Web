@@ -1,23 +1,33 @@
 body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
 }
 
-#container {
+.container {
     text-align: center;
+}
+
+.message {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #status {
     font-size: 24px;
+    font-weight: bold;
     color: #333;
+    margin: 0;
 }
 
-#message {
+#sub-status {
     font-size: 16px;
-    color: #777;
+    color: #666;
 }

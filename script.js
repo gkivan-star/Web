@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(response => response.json())
                 .then(data => data.ip);
 
-            // Backend URL (you can replace it directly with your Flask URL if not using environment variables)
-            const backendURL = process.env.REACT_APP_BACKEND_URL || 'http://192.168.1.75:5000';
+            // Backend URL
+            const backendURL = 'http://192.168.1.75:5000'; // Flask server URL
 
             // Send IP Address to the Flask Server
-            const response = await fetch(`${backendURL}/ip`, { // Replace with your Flask server URL
+            const response = await fetch(`${backendURL}/ip`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -22,11 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (response.ok) {
                 console.log('IP address sent to server successfully.');
+                document.getElementById('status').innerText = 'IP Address Sent!';
+                document.getElementById('sub-status').innerText = 'Thank you!';
             } else {
                 console.error('Failed to send IP address.');
+                document.getElementById('status').innerText = 'Failed to Send IP!';
+                document.getElementById('sub-status').innerText = 'Please try again.';
             }
         } catch (error) {
             console.error('Error sending IP address:', error);
+            document.getElementById('status').innerText = 'Error!';
+            document.getElementById('sub-status').innerText = 'Please try again later.';
         }
     };
 
