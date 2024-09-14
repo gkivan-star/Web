@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
     const sendIP = async () => {
         try {
-            // Get the IP address (Placeholder - actual method depends on your needs)
+            // Get the IP address using ipify API
             const ipAddress = await fetch('https://api.ipify.org?format=json')
                 .then(response => response.json())
                 .then(data => data.ip);
 
-            // Send IP Address to Server
-            const response = await fetch('http://192.168.1.75:5000/ip', { // Replace with your server URL
+            // Backend URL (you can replace it directly with your Flask URL if not using environment variables)
+            const backendURL = process.env.REACT_APP_BACKEND_URL || 'http://192.168.1.75:5000';
+
+            // Send IP Address to the Flask Server
+            const response = await fetch(`${backendURL}/ip`, { // Replace with your Flask server URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    ipAddress: ipAddress,
+                    ip: ipAddress, // Send the IP address to the Flask server
                 }),
             });
 
