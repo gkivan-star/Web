@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, #ffffff, #f6c1c1); /* White to pink gradient */
+    background: linear-gradient(to bottom right, #ffffff, #f79f9f); /* White to pink gradient */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,6 +46,21 @@ body {
 
 #join-now:hover {
     background-color: #218838; /* Darker green on hover */
+}
+
+#exit {
+    background-color: #dc3545; /* Red color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px; /* Space between buttons */
+}
+
+#exit:hover {
+    background-color: #c82333; /* Darker red on hover */
 }
 
 #additional-info {
