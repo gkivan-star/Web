@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (response.ok) {
-                // Update the UI to show the welcome message and buttons with GitHub info
+                // Show the welcome message and buttons with GitHub info on success
                 document.querySelector('.message').innerHTML = `
                     <p id="welcome">WELCOME</p>
                     <p id="description">To GitHub</p>
@@ -46,15 +46,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     window.location.href = 'https://github.com/';
                 });
             } else {
-                // Show connection error message without a block
+                // Show "Failed to connect" message on failure
                 document.querySelector('.message').innerHTML = `
                     <p id="status">Failed to connect to website</p>
+                    <p id="sub-status">That's all we know</p>
                 `;
             }
         } catch (error) {
-            // Show connection error message without a block
+            // Show "Failed to connect" message if there's a network error
             document.querySelector('.message').innerHTML = `
                 <p id="status">Failed to connect to website</p>
+                <p id="sub-status">That's all we know</p>
             `;
         }
     };
